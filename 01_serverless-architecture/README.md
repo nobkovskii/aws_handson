@@ -3,15 +3,24 @@
 ## はじめに
 
 本資料は、AWSが提供している学習コンテンツ「AWS Hands-on for Beginners」より、「[AWS Hands-on for Beginners
-Serverless #1サーバーレスアーキテクチャで翻訳 Web API を構築する](https://pages.awscloud.com/event_JAPAN_Hands-on-for-Beginners-Serverless-2019_LP.html?trk=aws_introduction_page)」を参考に記載しています。本ハンズオンのゴール
+Serverless #1サーバーレスアーキテクチャで翻訳 Web API を構築する](https://pages.awscloud.com/event_JAPAN_Hands-on-for-Beginners-Serverless-2019_LP.html?trk=aws_introduction_page)」を参考に記載しています。
+
+## 本ハンズオンのゴール
 
 > • AWS Lambda, Amazon API Gateway, Amazon DynamoDB の基本を学ぶ
+>
 > • 上記のサービスを組み合わせて、サーバーレスな Web API を作成する
+
+→DynamoDBの代わりに、馴染みのある「Amazon RDS」を使用します
+
+
 
 ## 本ハンズオンの前提条件・知識
 
 > • AWS アカウントをお持ちであること
+>
 > • Java を書いたことがあること（必須ではありません）
+>
 > 　※「AWS Hands-on for Beginners」ではPythonを使用していますが、Javaに書き換えています
 
 ## Agenda
@@ -36,31 +45,35 @@ Serverless #1サーバーレスアーキテクチャで翻訳 Web API を構築�
 →エンドユーザに価値を届ける
 
 ビジネスには繋がらない（エンドユーザには見えない）が、必要な作業がある。
-・サーバのセットアップ
-・ミドルウェアランタイムのセットアップ
-・セキュリティパッチの適用
-・耐障害性を確保するためのアーキテクチャ検討
+
+* サーバのセットアップ
+* ミドルウェアランタイムのセットアップ
+* セキュリティパッチの適用
+* 耐障害性を確保するためのアーキテクチャ検討
 
 サーバレスアーキテクチャは、これらの作業を**マネージドサービスに任せる**という特徴がある。
 
 サーバレスアーキテクチャの主な特徴
-１）インフラのプロビジョニングや管理が不要
-２）自動でスケール[^1]
-３）高い可用性[^1]
-４）価値に対する支払い[^2]
+
+* インフラのプロビジョニングや管理が不要
+* 自動でスケール[^1]
+* 高い可用性[^1]
+* 価値に対する支払い[^2]
 
 ## AWSにおけるComputeサービス
 
 ![aws-compute-services](./img/aws-compute-service.png)
 
 大きく分けると3種類
-・EC2
-・Container
-・Lambda
+
+* EC2
+* Container
+* Lambda
 
 優劣があるわけではなく、適材適所、ないしは開発・運用する人のスキルセットに応じて、使い分けることが重要。
-・自由度
-・管理の手間
+
+* 自由度
+* 管理の手間
 
 ## サーバレスアーキテクチャでよく使われるAWSのサービス
 
