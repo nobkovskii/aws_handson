@@ -135,7 +135,7 @@ computeサービス以外にも、よく使用されるサービスがある。
 * 1つのコンテナで同時に実行できるのは、1つのリクエストまで
 * コンテナは再利用されるが、利用可能なコンテナが無い時はコールドスタート
 
-![LambdaFunctionのライフサイクル](C:\Users\nobu\Desktop\会社\90_勉強\AWS-L\aws-handson\01_serverless-architecture\img\lambda_func_lifecycle.png)
+![LambdaFunctionのライフサイクル](./img/lambda_func_lifecycle.png)
 
 
 
