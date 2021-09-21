@@ -158,10 +158,22 @@ computeサービス以外にも、よく使用されるサービスがある。
 4. 作成後
 
    ![handson-04](./img/lambda_handson_04.png)
+   
+5. jarのアップロード
 
+   ![handson-05](./img/lambda_handson_05.png)
 
+6. メソッドの指定
 
+   ![handson-06](./img/lambda_handson_06.png)
 
+   ![handson-07](./img/lambda_handson_07.png)
+
+7. テスト実行
+
+   ![handson-08](./img/lambda_handson_08.png)
+
+   ![handson-09](./img/lambda_handson_09.png)
 
 
 

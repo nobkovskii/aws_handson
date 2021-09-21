@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // aws lambda
+    implementation 'com.amazonaws:aws-lambda-java-core:1.2.1'
+    implementation 'com.amazonaws:aws-lambda-java-events:3.1.0'
+    runtimeOnly 'com.amazonaws:aws-lambda-java-log4j2:1.2.0'
+}
+
+task buildZip(type: Zip){
+    from compileJava
+    from processResources
+    into('lib'){
+        from configurations.runtime
+    }
+}
+build.dependsOn buildZip
