@@ -161,6 +161,13 @@ computeサービス以外にも、よく使用されるサービスがある。
    
 5. jarのアップロード
 
+   [ソースコード](./1_lambda-hands-on/)
+
+   1. ソースコードを任意の箇所にダウンロード
+   2. ダウンロードしたディレクトリに移動して、`./gradlew build`
+   3. `build/libs/HandsOn-1.0-SNAPSHOT.jar`が出力される
+   4. 出力されたjarファイルを使用する
+
    ![handson-05](./img/lambda_handson_05.png)
 
 6. メソッドの指定
