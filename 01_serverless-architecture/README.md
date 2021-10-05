@@ -39,21 +39,22 @@ Serverless #1サーバーレスアーキテクチャで翻訳 Web API を構築�
 
 ## Agenda
 
-1. Serverless アーキテクチャの概要
-2. AWS Lambda の紹介とハンズオン
+1. [Serverless アーキテクチャの概要](./01_serverless.md)
+2. [AWS Lambda の紹介とハンズオン](./02_lambda.md)
    1. AWS Lambda の概要
    2. AWS Lambda ハンズオン① Lambda を単体で使ってみる
    3. AWS Lambda ハンズオン② 他のサービスを呼び出してみる（実施しません）
-3. Amazon API Gateway の紹介とハンズオン
+3. [Amazon API Gateway の紹介とハンズオン](./03_apigateway.md)
    1. Amazon API Gateway の概要
    2. Amazon API Gateway ハンズオン① API Gateway を単体で使ってみる
    3. Amazon API Gateway ハンズオン② API Gateway と Lambda を組み合わせる
-4. Amazon DynamoDB の紹介とハンズオン（実施しません）
+4. [Amazon DynamoDB の紹介とハンズオン（実施しません）](./10_dynamodb.md)
    1. Amazon DynamoDB の概要（実施しません）
-5. Amazon RDSの紹介とハンズオン
+5. [Amazon RDS の紹介とハンズオン](./04_rds.md)
    1. Amazon RDSの概要
    2. Amazon RDS ハンズオン① RDSを単体で使ってみる
-   3. Amazon RDS ハンズオン②  API Gateway と Lambda と RDS を組み合わせる
+   3. Amazon RDS ハンズオン② API Gateway と Lambda と RDS を組み合わせる
+6. [終わりに](./99_end.md)
 
 
 
@@ -531,6 +532,8 @@ computeサービス以外にも、よく使用されるサービスがある。
 
    10. 「データベースの作成」を選択
 
+       作成まで数分かかります。
+
 4. エンドポイントを確認する
 
    1. 作成したデータベースを選択
@@ -587,6 +590,33 @@ computeサービス以外にも、よく使用されるサービスがある。
 
 
 ## Amazon RDS ハンズオン②  API Gateway と Lambda と RDS を組み合わせる
+
+先程作成したRDSと、LambdaやAPI Gatewayをつなげます。
+
+
+
+Lambda
+
+[ソースコード](./3_rds-hands-on/)
+
+* 依存ライブラリ（`jdbc`）もjarに含めるため（`fat jar`作成のため）に、`Gradle Shadow Plugin`を使用しています。
+
+  * `./gradlew shadowJar`を実行することで、`fat jar`が作成されます。
+
+    ※Windowsの場合は、同様に`.\gradlew.bat shadowJar`を実行してください
+
+1. Lambdaを検索
+2. 「myFunc2」を新規作成する
+   1. 
+3. jarのアップロード
+   1. 上記で作成した`fat jar`を指定する
+4. ハンドラ
+   1. `org.example.handler.LambdaHandler::handleRequest`
+5. テスト
+   1. 新しいイベント
+   2. テンプレート：`apigateway-aws-proxy`
+   3. 名前：test-api
+   4. 変更を保存→テスト
 
 
 

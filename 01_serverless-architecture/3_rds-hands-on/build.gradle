@@ -1,0 +1,33 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '5.0.0'
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Gson
+    implementation 'com.google.code.gson:gson:2.8.8'
+
+    // JDBC(MySQL)-Driver
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.20'
+
+    // aws lambda
+    implementation 'com.amazonaws:aws-lambda-java-core:1.2.1'
+    implementation 'com.amazonaws:aws-lambda-java-events:3.1.0'
+    runtimeOnly 'com.amazonaws:aws-lambda-java-log4j2:1.2.0'
+}
+
+task buildZip(type: Zip) {
+    from compileJava
+    from processResources
+    into('lib') {
+        from configurations.runtimeClasspath
+    }
+}
+build.dependsOn buildZip
