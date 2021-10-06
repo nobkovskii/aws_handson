@@ -71,7 +71,9 @@ computeサービス以外にも、よく使用されるサービスがある。
 
 ## Next
 
-[AWS Lambda の紹介とハンズオン ＞](./02_lambda.md)
+[＜ README](./README.md)
+
+[AWS Lambda の紹介とハンズオン ＞](./10_lambda.md)
 
 
 
