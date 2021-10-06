@@ -58,6 +58,18 @@ Serverless #1サーバーレスアーキテクチャで翻訳 Web API を構築�
 
 
 
+## 事前準備
+
+* 本リポジトリを取得しておいてください（下記は例）
+  * Zipで取得する場合
+    1. 「Code」＞「Download ZIP」
+    2. ダウンロードしたZipを、展開
+  * git コマンドで取得する場合
+    1. 任意のディレクトリに移動
+    2. `git clone https://github.com/nobkovskii/aws_handson.git`
+
+![download](./img/download.png)
+
 ## Next
 
 [Serverless アーキテクチャの概要 ＞](./01_serverless.md)

@@ -27,7 +27,7 @@
 
 > * サーバをプロビジョニング／管理することなく、APIの作成・管理出来るマネージドサービス。
 > * 可用性の担保やスケーラビリティの確保、APIキーの管理と言った作業を、API Gatewayに任せる事ができ、開発者はAPIの開発に注力することが可能。
-> * 「REST API」と「WebSocket」に対応
+> * 「REST API」「WebSocket」「HTTP API」に対応
 >   * 本ハンズオンでは「REST API」を使用
 >   * リクエストベースの料金体系
 >     * 実行回数（＋キャッシュメモリ量）＋データ転送量
@@ -55,13 +55,27 @@
 
 ## Amazon API Gateway ハンズオン① API Gateway を単体で使ってみる
 
-### Mockデータを返すAPIを作成する
+### 概要
+
+* Mockデータを返すAPIを作成する
+
+
+
+### 手順
 
 1. API Gatewayを検索
 
-2. 「APIを作成」を選択
+   ![api01](./img/api_01.png)
 
-3. APIの作成
+2. 「REST API」＞「構築」を選択
+
+   ![api02](./img/api_02.png)
+
+3. 「最初のAPIを作成する」ダイアログは「OK」
+
+   ![api](./img/api_03.png)
+
+4. APIの作成
 
    1. プロトコル：REST
    2. 新しいAPIの作成：新しいAPI
@@ -70,20 +84,34 @@
       2. 説明：空欄
       3. エンドポイントタイプ：リージョン
 
-4. 「アクション」→「リソースの作成」を選択
+   ![api](./img/api_04.png)
+
+5. 「アクション」→「リソースの作成」を選択
 
    1. リソース名：sample
 
-5. 作成した「sample」を選択した状態で、「アクション」→「メソッドの作成」を選択
+   ![api](./img/api_05.png)
+
+   ![api](./img/api_06.png)
+
+6. 作成した「sample」を選択した状態で、「アクション」→「メソッドの作成」を選択
 
    1. プルダウン：GET
    2. チェックボタンを押下
 
-6. セットアップ
+   ![api](./img/api_07.png)
+
+   ![api](./img/api_08.png)
+
+7. セットアップ
 
    1. 統合タイプ：Mock
 
-7. 統合レスポンスを選択
+   ![api](./img/api_09.png)
+
+8. 統合レスポンスを選択
+
+   ![api](./img/api_10.png)
 
    1. マッピングテンプレート：`application/json`
 
@@ -96,51 +124,114 @@
       }
       ```
 
-8. 「メソッドの実行」→「テスト」→「テスト」を実行
+   ![api](./img/api_11.png)
 
-9. デプロイ
+9. 「メソッドの実行」→「テスト」→「テスト」を実行
+
+   ![api](./img/api_12.png)
+
+   ![api](./img/api_13.png)
+
+10. デプロイ
 
    1. 「アクション」→「APIのデプロイ」
       1. デプロイされるステージ：新しいステージ
       2. ステージ名：dev
 
-10. 「ステージ」→「dev」→「URLの呼び出し」を選択
+   ![api](./img/api_14.png)
 
+   ![api](./img/api_15.png)
 
+11. 「ステージ」→「dev」→「URLの呼び出し」を選択
+
+    ※末尾に「`/sample`」をつける
+
+    ![api](./img/api_16.png)
+
+    ![api](./img/api_17.png)
 
 
 
 ## Amazon API Gateway ハンズオン② API Gateway と Lambda を組み合わせる
 
-### 入力した文字列の末尾に「`-nyan`」とつけるAPIを作成する:cat:
+### 概要
+
+* 入力した文字列の末尾に「`-nyan`」とつけるAPIを作成する:cat:
 
 ※「この程度ならLambdaいらないじゃん」とか言わないで・・・
 
-[ソースコード](./2_apigateway-hands-on/)
 
-* 依存ライブラリ（`Gson`）もjarに含めるため（`fat jar`作成のため）に、`Gradle Shadow Plugin`を使用しています。
 
-  * `./gradlew shadowJar`を実行することで、`fat jar`が作成されます。
+1. lambda用のjarを作成
+2. API Gateway から、Lambdaを呼び出す
 
-    ※Windowsの場合は、同様に`.\gradlew.bat shadowJar`を実行してください
 
-1. Lambdaを検索
-2. 先程作成した「myFunc」を使用する
-3. jarのアップロード
-   1. 上記で作成した`fat jar`を指定する
-4. テスト
+
+### 手順（Lambdaの設定）
+
+1. jarの準備（ローカルPCにて実施）
+
+   1. `aws_handson/01_serverless-architecture/2_apigateway-hands-on/`に移動
+
+   2. `./gradlew shadowJar`を実行
+
+      1. Windows（コマンドプロンプト）の場合は、「`.\gradlew.bat shadowJar`」
+
+         ※依存ライブラリ（`Gson`）もjarに含めるため（`fat jar`作成のため）に、`Gradle Shadow Plugin`を使用しています。
+
+2. 出力されたjarファイルを使用する（AWSマネジメントコンソールにて実施）
+
+   1. 「コードタブ」＞「アップロード元」＞「zip または jar ファイル」
+
+      ![handson-05](C:\Users\nobu\Desktop\会社\90_勉強\AWS-L\aws-handson\01_serverless-architecture\img\lambda_handson_05_1.png)
+
+   2. 「アップロード」を選択し、先程作成したjarファイルを指定し、保存
+
+      ![handson-05](./img/lambda_handson_05.png)
+
+3. メソッドの指定
+
+   1. 「コードタブ」＞「ランタイム設定」＞「編集」
+      * ランタイム：Java 8 on Amazon Linux 2
+      * ハンドラ：`org.example.handler.LambdaHandler::handleRequest`
+      * アーキテクチャ：`x86_64`
+
+   ![api-lambda](./img/api-lambda_01.png)
+
+4. 「テストタブ」＞「新しいイベント」
+
    1. 新しいイベント
+
    2. テンプレート：`apigateway-aws-proxy`
+
+      ![api-lambda](./img/api-lambda_02.png)
+
    3. 名前：test-api
-   4. 変更を保存→テスト
+
+   4. `queryStringParameters`を修正（7～9行目あたり）
+
+      ※引数にて`input_text`として取得しているため
+
+      ```diff
+        "queryStringParameters": {
+      -    "foo": "bar"
+      +    "input_text": "bar"
+        },
+      ```
+
+      ![api-lambda](./img/api-lambda_03.png)
+
+   5. 変更を保存→テスト
+
+      ![api-lambda](./img/api-lambda_04.png)
 
 
 
-### API Gatewayの設定
+### 手順（API Gatewayの設定）
 
 1. API Gatewayを検索
 
-2. 「APIを作成」を選択
+2. 「REST API」＞「構築」を選択
 
 3. APIの作成
 
@@ -163,25 +254,42 @@
 6. セットアップ
 
    1. 統合タイプ：Lambda 関数
+
    2. Lambda プロキシ統合の使用：チェックを入れる
+
    3. Lambda関数：myFunc
+
+      ![api-lambda](./img/api-lambda_05.png)
+
    4. Lambda関数に権限を追加する：OK
 
+      ![api-lambda](./img/api-lambda_06.png)
+
 7. メソッドリクエストを選択
+
+   ![api-lambda](./img/api-lambda_07.png)
 
    1. URLクエリ文字列パラメータ
 
       1. 名前：`input_text`
 
+         ![api-lambda](./img/api-lambda_08.png)
+
       2. 必須：チェックを入れる
 
          ※一度作成しないとチェックを行えない
 
+         ![api-lambda](./img/api-lambda_09.png)
+
 8. 「メソッドの実行」→「テスト」→「テスト」を実行
+
+   ![api-lambda](./img/api-lambda_10.png)
 
    1. クエリ文字列
 
       `input_text=hoge`
+
+      ![api-lambda](./img/api-lambda_11.png)
 
 9. デプロイ
 
