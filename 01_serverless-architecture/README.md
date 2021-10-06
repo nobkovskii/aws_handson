@@ -40,20 +40,20 @@ Serverless #1サーバーレスアーキテクチャで翻訳 Web API を構築�
 ## Agenda
 
 1. [Serverless アーキテクチャの概要](./01_serverless.md)
-2. [AWS Lambda の紹介とハンズオン](./02_lambda.md)
-   1. AWS Lambda の概要
-   2. AWS Lambda ハンズオン① Lambda を単体で使ってみる
+2. AWS Lambda の紹介とハンズオン
+   1. [AWS Lambda の概要](./10_lambda.md)
+   2. [AWS Lambda ハンズオン① Lambda を単体で使ってみる](./11_lambda_1.md)
    3. AWS Lambda ハンズオン② 他のサービスを呼び出してみる（実施しません）
-3. [Amazon API Gateway の紹介とハンズオン](./03_apigateway.md)
-   1. Amazon API Gateway の概要
-   2. Amazon API Gateway ハンズオン① API Gateway を単体で使ってみる
-   3. Amazon API Gateway ハンズオン② API Gateway と Lambda を組み合わせる
-4. [Amazon DynamoDB の紹介とハンズオン（実施しません）](./10_dynamodb.md)
-   1. Amazon DynamoDB の概要（実施しません）
-5. [Amazon RDS の紹介とハンズオン](./04_rds.md)
-   1. Amazon RDSの概要
-   2. Amazon RDS ハンズオン① RDSを単体で使ってみる
-   3. Amazon RDS ハンズオン② API Gateway と Lambda と RDS を組み合わせる
+3. Amazon API Gateway の紹介とハンズオン
+   1. [Amazon API Gateway の概要](./20_apigateway.md)
+   2. [Amazon API Gateway ハンズオン① API Gateway を単体で使ってみる](./21_apigateway_1.md)
+   3. [Amazon API Gateway ハンズオン② API Gateway と Lambda を組み合わせる](./22_apigateway_2.md)
+4. Amazon DynamoDB の紹介とハンズオン（実施しません）
+   1. [Amazon DynamoDB の概要（実施しません）](./30_dynamodb.md)
+5. Amazon RDS の紹介とハンズオン
+   1. [Amazon RDSの概要](./40_rds.md)
+   2. [Amazon RDS ハンズオン① RDSを単体で使ってみる](./41_rds_1.md)
+   3. [Amazon RDS ハンズオン② API Gateway と Lambda と RDS を組み合わせる](./42_rds_2.md)
 6. [終わりに](./99_end.md)
 
 
