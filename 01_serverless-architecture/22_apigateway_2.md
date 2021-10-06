@@ -1,4 +1,4 @@
-# 3.Amazon API Gateway の紹介とハンズオン
+# Amazon API Gateway ハンズオン② API Gateway と Lambda を組み合わせる
 
 ## Agenda
 
@@ -20,8 +20,6 @@
 6. [終わりに](./99_end.md)
 
 
-
-## Amazon API Gateway ハンズオン② API Gateway と Lambda を組み合わせる
 
 ### 概要
 

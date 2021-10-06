@@ -1,4 +1,4 @@
-# 1.Serverless アーキテクチャの概要
+# Serverless アーキテクチャの概要
 
 ## Agenda
 
@@ -73,7 +73,7 @@ computeサービス以外にも、よく使用されるサービスがある。
 
 [＜ README](./README.md)
 
-[AWS Lambda の紹介とハンズオン ＞](./10_lambda.md)
+[AWS Lambda の概要 ＞](./10_lambda.md)
 
 
 

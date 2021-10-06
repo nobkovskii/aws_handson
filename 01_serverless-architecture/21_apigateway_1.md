@@ -1,4 +1,4 @@
-# 3.Amazon API Gateway の紹介とハンズオン
+# Amazon API Gateway ハンズオン① API Gateway を単体で使ってみる
 
 ## Agenda
 
@@ -20,8 +20,6 @@
 6. [終わりに](./99_end.md)
 
 
-
-## Amazon API Gateway ハンズオン① API Gateway を単体で使ってみる
 
 ### 概要
 

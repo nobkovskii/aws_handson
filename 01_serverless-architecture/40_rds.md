@@ -1,4 +1,4 @@
-# 5.Amazon RDSの紹介とハンズオン
+# Amazon RDSの概要
 
 ## Agenda
 

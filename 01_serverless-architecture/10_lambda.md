@@ -1,4 +1,4 @@
-# 2.AWS Lambda の紹介とハンズオン
+# AWS Lambda の概要
 
 ## Agenda
 

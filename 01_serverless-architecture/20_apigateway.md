@@ -1,4 +1,4 @@
-# 3.Amazon API Gateway の紹介とハンズオン
+# Amazon API Gateway の概要
 
 ## Agenda
 
@@ -20,8 +20,6 @@
 6. [終わりに](./99_end.md)
 
 
-
-## azon API Gateway の概要
 
 ### API Gatewayの特徴
 

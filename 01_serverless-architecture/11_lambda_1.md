@@ -1,4 +1,4 @@
-# 2.AWS Lambda の紹介とハンズオン
+# AWS Lambda ハンズオン① Lambda を単体で使ってみる
 
 ## Agenda
 
@@ -20,8 +20,6 @@
 6. [終わりに](./99_end.md)
 
 
-
-## AWS Lambda ハンズオン① Lambda を単体で使ってみる
 
 ### 概要
 
