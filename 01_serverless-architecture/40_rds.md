@@ -23,7 +23,7 @@
 
 ## AWSのデータベースサービス
 
-![db_all](./img/db_all.png)
+![db_all](./img/db_all.jpg)
 
 ※https://www2.slideshare.net/AmazonWebServicesJapan/20201216-aws-black-belt-online-seminar-amazon-timestream#7
 
