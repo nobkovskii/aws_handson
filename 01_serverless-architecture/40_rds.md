@@ -21,7 +21,15 @@
 
 
 
+## AWSのデータベースサービス
+
+![db_all](./img/db_all.png)
+
+※https://www2.slideshare.net/AmazonWebServicesJapan/20201216-aws-black-belt-online-seminar-amazon-timestream#7
+
 ## Amazon RDSの概要
+
+※https://d1.awsstatic.com/webinars/jp/pdf/services/20180425_AWS-BlackBelt_RDS.pdf
 
 > * フルマネージドなリレーショナルデータベース
 > * シンプルかつ迅速にスケール可能

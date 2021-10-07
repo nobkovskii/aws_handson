@@ -34,7 +34,7 @@
 
 
 
-## Back
+## Next
 
 [＜ Amazon API Gateway ハンズオン② API Gateway と Lambda を組み合わせる](./22_apigateway_2.md)
 
