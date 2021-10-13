@@ -34,6 +34,10 @@
 
 
 
+![img](./img/img_03.jpg)
+
+
+
 ### 手順（Lambdaの設定）
 
 1. jarの準備（ローカルPCにて実施）
@@ -54,7 +58,7 @@
 
    1. 「コードタブ」＞「アップロード元」＞「zip または jar ファイル」
 
-      ![handson-05](C:\Users\nobu\Desktop\会社\90_勉強\AWS-L\aws-handson\01_serverless-architecture\img\lambda_handson_05_1.png)
+      ![handson-05](./img/lambda_handson_05_1.png)
 
    2. 「アップロード」を選択し、先程作成したjarファイルを指定し、保存
 
