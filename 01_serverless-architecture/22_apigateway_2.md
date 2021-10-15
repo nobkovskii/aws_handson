@@ -162,7 +162,7 @@
 
    1. クエリ文字列
 
-      `input_text=hoge`
+      `input_text=foo`
 
       ![api-lambda](./img/api-lambda_11.png)
 
