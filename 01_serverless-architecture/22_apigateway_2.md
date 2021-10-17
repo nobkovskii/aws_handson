@@ -40,40 +40,43 @@
 
 ### 手順（Lambdaの設定）
 
-1. jarの準備（ローカルPCにて実施）
+1. jarの準備（CloudShellにて実施）
 
-   1. `aws_handson/01_serverless-architecture/2_apigateway-hands-on/`に移動
+   1. 下記コマンドを実行
 
-   2. `./gradlew shadowJar`を実行
+      ```bash
+      cd ~/aws_handson/01_serverless-architecture/2_apigateway-hands-on/
+      
+      // gradlewの実行権限変更
+      chmod 775 ./gradlew
+      
+      // ビルド（jar）の作成
+      // 依存ライブラリ（Gson）もjarに含めるため（fat jar作成のため）に、「Gradle Shadow Plugin」を使用しています。
+      // 成功すると「build/libs/HandsOn-1.0-SNAPSHOT-all.jar」が出力される
+      ./gradlew shadowJar
+      
+      ```
 
-      1. Windows（コマンドプロンプト）の場合は、「`.\gradlew.bat shadowJar`」
+2. jarのアップロード
 
-         ※依存ライブラリ（`Gson`）もjarに含めるため（`fat jar`作成のため）に、`Gradle Shadow Plugin`を使用しています。
+   1. 下記コマンドを実行
 
-2. Lambdaを検索（AWSマネジメントコンソールにて実施）
+      ```bash
+      cd ~/aws_handson/01_serverless-architecture/2_apigateway-hands-on/build/libs/
+      
+      // ハンドラ（＝実行するメソッド）の変更
+      aws lambda update-function-configuration --function-name myFunc --handler org.example.handler.LambdaHandler::handleRequest
+      
+      // jarのアップロード
+      aws lambda update-function-code --function-name myFunc --zip-file fileb://HandsOn-1.0-SNAPSHOT-all.jar
+      
+      ```
 
-3. `myFunc`を選択
+3. Lambdaを検索（AWSマネジメントコンソールにて実施）
 
-4. 出力されたjarファイルを使用する
+4. `myFunc`を選択
 
-   1. 「コードタブ」＞「アップロード元」＞「zip または jar ファイル」
-
-      ![handson-05](./img/lambda_handson_05_1.png)
-
-   2. 「アップロード」を選択し、先程作成したjarファイルを指定し、保存
-
-      ![handson-05](./img/lambda_handson_05.png)
-
-5. メソッドの指定
-
-   1. 「コードタブ」＞「ランタイム設定」＞「編集」
-      * ランタイム：Java 8 on Amazon Linux 2
-      * ハンドラ：`org.example.handler.LambdaHandler::handleRequest`
-      * アーキテクチャ：`x86_64`
-
-   ![api-lambda](./img/api-lambda_01.png)
-
-6. 「テストタブ」＞「新しいイベント」
+5. 「テストタブ」＞「新しいイベント」
 
    1. 新しいイベント
 
@@ -162,7 +165,7 @@
 
    1. クエリ文字列
 
-      `input_text=hoge`
+      `input_text=foo`
 
       ![api-lambda](./img/api-lambda_11.png)
 

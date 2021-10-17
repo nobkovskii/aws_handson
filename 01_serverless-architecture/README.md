@@ -60,15 +60,44 @@ Serverless #1サーバーレスアーキテクチャで翻訳 Web API を構築�
 
 ## 事前準備
 
-* 本リポジトリを取得しておいてください（下記は例）
-  * Zipで取得する場合
-    1. 「Code」＞「Download ZIP」
-    2. ダウンロードしたZipを、展開
-  * git コマンドで取得する場合
-    1. 任意のディレクトリに移動
-    2. `git clone https://github.com/nobkovskii/aws_handson.git`
+* CloudShell環境に、本リポジトリのダウンロードとJDK1.8（Corret）をインストールします。
 
-![download](./img/download.png)
+
+
+### 注意事項
+
+* 本ハンズオンは、全サービスを「東京リージョン（ap-northeast-1）」での動作と想定しています。
+
+  * 異なるリージョンを使用の際は、東京リージョンへの変更をお願いします。
+
+    ![img](./img/region.png)
+
+
+
+### 手順
+
+1. CloudShellを開く
+
+   ※起動まで数分かかります
+
+   ![img](./img/rds_11.png)
+
+2. 下記コマンドを実行する
+
+   ```bash
+   // download git repositry
+   git clone https://github.com/nobkovskii/aws_handson.git
+   
+   // download and set JDK1.8(corret8)
+   sudo amazon-linux-extras enable corretto8
+   sudo yum install -y java-1.8.0-amazon-corretto-devel
+   
+   // check jdk
+   java --version
+   
+   ```
+
+   
 
 ## Next
 

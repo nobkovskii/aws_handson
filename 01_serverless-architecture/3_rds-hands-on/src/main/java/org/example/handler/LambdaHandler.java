@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LambdaHandler implements RequestHandler<Map<String, Object>, Apigateway> {
-    private static final String CONNECTION_STRING = "jdbc:mysql://XXX.ap-northeast-1.rds.amazonaws.com:3306/rds_test";
+    private static final String CONNECTION_STRING = "jdbc:mysql://<RDS-エンドポイント>:3306/rds_test";
     private static final String USERNAME = "admin";
     private static final String PASSWORD = "password";
 

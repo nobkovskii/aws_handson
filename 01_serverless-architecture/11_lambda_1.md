@@ -98,40 +98,43 @@
 
    ![handson-04](./img/lambda_handson_04.png)
    
-5. jarのアップロード
+5. jarのアップロード（CLIで実施）
 
-   1. jarの準備（ローカルPCにて実施）
+   1. jarの準備（CloudShellにて実施）
 
-      1. ダウンロードした`aws_handson/01_serverless-architecture/1_lambda-hands-on/`にディレクトリに移動
+      1. 下記コマンドを実行
 
-      2. `./gradlew build`を実行
+         ```bash
+         cd ~/aws_handson/01_serverless-architecture/1_lambda-hands-on/
+         
+         // gradlewの実行権限変更
+         chmod 775 ./gradlew
+         
+         // ビルド（jar）の作成
+         // 成功すると「build/libs/HandsOn-1.0-SNAPSHOT.jar」が出力される
+         ./gradlew build
+         
+         ```
 
-         1. Windows（コマンドプロンプト）の場合は「`.\gradlew.bat build`」
+   2. jarのアップロード
 
-            ※すでにファイルがある場合は、上書きされない可能性があるので、削除してから行う
+      1. 下記コマンドを実行
 
-      3. `build/libs/HandsOn-1.0-SNAPSHOT.jar`が出力される
+         ```bash
+         cd ~/aws_handson/01_serverless-architecture/1_lambda-hands-on/build/libs/
+         
+         // ハンドラ（＝実行するメソッド）の変更
+         aws lambda update-function-configuration --function-name myFunc --handler  org.example.LambdaHandler::handleRequest
+         
+         // jarのアップロード
+         aws lambda update-function-code --function-name myFunc --zip-file fileb://HandsOn-1.0-SNAPSHOT.jar
+         
+         ```
 
-   2. 出力されたjarファイルを使用する（AWSマネジメントコンソールにて実施）
+         ▼参考
 
-      1. 「コードタブ」＞「アップロード元」＞「zip または jar ファイル」
-
-         ![handson-05](./img/lambda_handson_05_1.png)
-
-      2. 「アップロード」を選択し、先程作成したjarファイルを指定し、保存
-
-         ![handson-05](./img/lambda_handson_05.png)
-
-6. メソッドの指定
-
-   1. 「コードタブ」＞「ランタイム設定」＞「編集」
-      * ランタイム：Java 8 on Amazon Linux 2
-      * ハンドラ：`org.example.LambdaHandler::handleRequest`
-      * アーキテクチャ：`x86_64`
-
-   ![handson-06](./img/lambda_handson_06.png)
-
-   ![handson-07](./img/lambda_handson_07.png)
+         * https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/java-package.html
+         * https://docs.aws.amazon.com/cli/latest/reference/lambda/update-function-configuration.html
 
 7. テスト実行
 
