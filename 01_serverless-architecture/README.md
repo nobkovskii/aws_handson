@@ -93,7 +93,7 @@ Serverless #1サーバーレスアーキテクチャで翻訳 Web API を構築�
    sudo yum install -y java-1.8.0-amazon-corretto-devel
    
    // check jdk
-   java --version
+   java -version
    
    ```
 
